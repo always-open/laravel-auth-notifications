@@ -4,7 +4,6 @@ namespace AlwaysOpen\AuthNotifications;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use AlwaysOpen\AuthNotifications\Commands\AuthNotificationsCommand;
 
 class AuthNotificationsServiceProvider extends PackageServiceProvider
 {
