@@ -7,11 +7,8 @@ use AlwaysOpen\AuthNotifications\Events\TwoFactorWasDisabled;
 use AlwaysOpen\AuthNotifications\Events\TwoFactorWasEnabled;
 use Illuminate\Auth\Events\Failed;
 use Illuminate\Auth\Events\Lockout;
-use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Contracts\Events\Dispatcher;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Str;
 
 class AuthEventSubscriber
@@ -53,7 +50,7 @@ class AuthEventSubscriber
 
     public function subscribe(Dispatcher $events): void
     {
-        collect(config('auth-notifications.listen_to'))->each(function($item) use($events) {
+        collect(config('auth-notifications.listen_to'))->each(function ($item) use ($events) {
             $events->listen(
                 $item,
                 [

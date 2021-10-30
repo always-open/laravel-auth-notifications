@@ -2,9 +2,9 @@
 
 namespace AlwaysOpen\AuthNotifications\Tests;
 
+use AlwaysOpen\AuthNotifications\AuthNotificationsServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use AlwaysOpen\AuthNotifications\AuthNotificationsServiceProvider;
 
 class TestCase extends Orchestra
 {
