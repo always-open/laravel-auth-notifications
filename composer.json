@@ -1,18 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "always-open/laravel-auth-notifications",
+    "description": "A Laravel package to notify your users when their password, two-factor authentication, or login status changes.",
     "keywords": [
-        ":vendor_name",
+        "always-open",
         "laravel",
-        ":package_slug"
+        "laravel-auth-notifications"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/always-open/laravel-auth-notifications",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
-            "role": "Developer"
+            "name": "Tom Schlick",
+            "email": "tom@schlick.email"
         }
     ],
     "require": {
@@ -30,13 +29,12 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "AlwaysOpen\\AuthNotifications\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "AlwaysOpen\\AuthNotifications\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -49,10 +47,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "AlwaysOpen\\AuthNotifications\\AuthNotificationsServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\SkeletonFacade"
+                "AuthNotifications": "AlwaysOpen\\AuthNotifications\\AuthNotificationsFacade"
             }
         }
     },
