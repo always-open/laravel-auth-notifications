@@ -36,4 +36,17 @@
     <logging>
         <junit outputFile="build/report.junit.xml"/>
     </logging>
+    <php>
+        <env name="APP_NAME" value="testing" />
+        <env name="DB_CONNECTION" value="sqlite" />
+        <env name="DB_DATABASE" value=":memory:" />
+        <env name="AUTH_NOTIFICATIONS_USER_MODEL" value="AlwaysOpen\AuthNotifications\Tests\Fakes\UserModel" />
+        <env name="AUTH_NOTIFICATIONS_LOGIN_VALIDATED" value="true" />
+        <env name="AUTH_NOTIFICATIONS_LOGIN_FAILED" value="true" />
+        <env name="AUTH_NOTIFICATIONS_LOGIN_LOCKOUT" value="true" />
+        <env name="AUTH_NOTIFICATIONS_CREDENTIALS_LOGINCHANGED" value="true" />
+        <env name="AUTH_NOTIFICATIONS_CREDENTIALS_PASSWORDCHANGED" value="true" />
+        <env name="AUTH_NOTIFICATIONS_CREDENTIALS_TWOFACTORENABLED" value="true" />
+        <env name="AUTH_NOTIFICATIONS_CREDENTIALS_TWOFACTORDISABLED" value="true" />
+    </php>
 </phpunit>
