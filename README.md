@@ -23,9 +23,11 @@ php artisan vendor:publish --provider="AlwaysOpen\AuthNotifications\AuthNotifica
 
 ## Usage
 
-```php
+By default all of the notifications are turned off. To enable them, declare the appropriate environment variable like `AUTH_NOTIFICATIONS_LOGIN_VALIDATED=true`. Framework login events track the `Illuminate\Auth\Events\Validated`, `Illuminate\Auth\Events\Failed`, and `Illuminate\Auth\Events\Lockout` events. 
 
-```
+For credential notifications, we are simply watching the user model for changes. If you'd rather fire those events manually, set the corresponding field to a blank string and dispatch `AlwaysOpen\AuthNotifications\Events\LoginWasChanged`, `AlwaysOpen\AuthNotifications\Events\PasswordWasChanged`, `AlwaysOpen\AuthNotifications\Events\TwoFactorWasEnabled`, or `AlwaysOpen\AuthNotifications\Events\TwoFactorWasDisabled` with the only parameter being the user object to send to.
+
+You may also override the notifications that are sent by creating your own notifications via `php artisan make:notification` and overriding the class defined in the `config/auth-notifications.php`.
 
 ## Testing
 
