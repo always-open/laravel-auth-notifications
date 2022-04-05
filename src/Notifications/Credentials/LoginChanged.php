@@ -1,10 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace AlwaysOpen\AuthNotifications\Notifications\Credentials;
 
 use AlwaysOpen\AuthNotifications\Events\LoginWasChanged;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
@@ -29,7 +30,7 @@ class LoginChanged extends Notification
 
         $originalAddress = $notifiable->getOriginal($field);
 
-        return (new MailMessage)
+        return (new MailMessage())
                     ->cc($originalAddress)
                     ->subject("Account Security: " . ucfirst($field) . " successfully changed!")
                     ->line("Your {$field} has been successfully changed to {$value}. If you did not make this change, please contact us immediately.");

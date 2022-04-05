@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace AlwaysOpen\ProcessStamps\Tests;
 
 use AlwaysOpen\AuthNotifications\Notifications\Credentials\PasswordChanged;
@@ -32,7 +34,7 @@ class AuthNotificationsTest extends TestCase
         ]);
     }
 
-     /** @test */
+    /** @test */
     public function user_notified_upon_new_web_login(): void
     {
         Notification::fake();
@@ -45,17 +47,17 @@ class AuthNotificationsTest extends TestCase
         );
     }
 
-     /** @test */
-     public function user_notified_upon_new_api_login(): void
-     {
-         Notification::fake();
+    /** @test */
+    public function user_notified_upon_new_api_login(): void
+    {
+        Notification::fake();
 
-         Event::dispatch(new Validated('api', $this->user));
+        Event::dispatch(new Validated('api', $this->user));
 
-         Notification::assertNothingSent();
-     }
+        Notification::assertNothingSent();
+    }
 
-      /** @test */
+    /** @test */
     public function user_notified_upon_failed_web_login(): void
     {
         Notification::fake();
@@ -68,17 +70,17 @@ class AuthNotificationsTest extends TestCase
         );
     }
 
-     /** @test */
-     public function user_notified_upon_failed_api_login(): void
-     {
-         Notification::fake();
+    /** @test */
+    public function user_notified_upon_failed_api_login(): void
+    {
+        Notification::fake();
 
-         Event::dispatch(new Failed('api', $this->user, []));
+        Event::dispatch(new Failed('api', $this->user, []));
 
-         Notification::assertNothingSent();
-     }
+        Notification::assertNothingSent();
+    }
 
-       /** @test */
+    /** @test */
     public function user_notified_upon_lockout(): void
     {
         Notification::fake();

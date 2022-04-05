@@ -1,8 +1,8 @@
 <?php
 
-namespace AlwaysOpen\AuthNotifications\Listeners;
+declare(strict_types=1);
 
-use App\Models\User;
+namespace AlwaysOpen\AuthNotifications\Listeners;
 
 class UserObserver
 {
@@ -20,7 +20,7 @@ class UserObserver
             config('auth-notifications.listen_to.password_changed.event')::dispatch($user);
         }
 
-        if ($user->wasChanged(config('auth-notifications.listen_to.twofactor_enabled.field')) && !empty($user->{config('auth-notifications.listen_to.twofactor_enabled.field')})) {
+        if ($user->wasChanged(config('auth-notifications.listen_to.twofactor_enabled.field')) && ! empty($user->{config('auth-notifications.listen_to.twofactor_enabled.field')})) {
             config('auth-notifications.listen_to.twofactor_enabled.event')::dispatch($user);
         }
 

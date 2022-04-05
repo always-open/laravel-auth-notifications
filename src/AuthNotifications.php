@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace AlwaysOpen\AuthNotifications;
 
 use AlwaysOpen\AuthNotifications\Events\LoginWasChanged;

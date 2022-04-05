@@ -1,8 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace AlwaysOpen\AuthNotifications;
 
-use AlwaysOpen\AuthNotifications\AuthNotifications;
 use AlwaysOpen\AuthNotifications\Listeners\UserObserver;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Support\Str;
@@ -26,7 +27,7 @@ class AuthNotificationsServiceProvider extends PackageServiceProvider
         $model::observe(UserObserver::class);
 
 
-        collect(config('auth-notifications.listen_to'))->each(function ($item) {
+        collect(config('auth-notifications.listen_to'))->each(function ($item): void {
             app(Dispatcher::class)->listen(
                 $item['event'],
                 [
