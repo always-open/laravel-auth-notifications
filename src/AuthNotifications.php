@@ -38,7 +38,7 @@ class AuthNotifications
         if (! in_array($event->guard, config('auth-notifications.listen_to.login_failed.guards'))) {
             return;
         }
-        
+
         if (empty($event->user)) {
             return;
         }
