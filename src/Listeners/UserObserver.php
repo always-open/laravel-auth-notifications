@@ -8,7 +8,7 @@ class UserObserver
 {
     public function updated($user): void
     {
-        if ($user->recentlyCreated) {
+        if ($user->wasRecentlyCreated) {
             return;
         }
 
